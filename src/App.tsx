@@ -55,12 +55,12 @@ function App() {
 
   const handleDeletion = async () => {
     if (equation) {
-      const updatedequation = equation.slice(0, -1);
+      const updatedEquation = equation.slice(0, -1);
 
-      setEquation(updatedequation);
+      setEquation(updatedEquation);
 
-      if (!operators.includes(updatedequation.slice(-1))) {
-        const { success, result: updatedResult } = await updateCalculation(updatedequation);
+      if (!operators.includes(updatedEquation.slice(-1))) {
+        const { success, result: updatedResult } = await updateCalculation(updatedEquation);
 
         if (success) {
           setResult(updatedResult);
@@ -71,11 +71,11 @@ function App() {
 
   const handleClearing = async () => {
     if (equation) {
-      const updatedequation = '';
+      const updatedEquation = '';
 
-      setEquation(updatedequation);
+      setEquation(updatedEquation);
 
-      const { success, result: updatedResult } = await updateCalculation(updatedequation);
+      const { success, result: updatedResult } = await updateCalculation(updatedEquation);
 
       if (success) {
         setResult(updatedResult);
