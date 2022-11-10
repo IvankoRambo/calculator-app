@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-react",
+    "tslint-eslint-rules"
+  ],
+  "jsRules": {},
+  "rules": {
+    "no-implicit-dependencies": false,
+    "no-submodule-imports": false,
+    "prettier": false
+  },
+  "exclude": ["node_modules"],
+  "autoFixOnSave": true,
+  "linterOptions": {
+    "exclude": ["node_modules/**", "build/**", "**/*.js"]
+  }
+}

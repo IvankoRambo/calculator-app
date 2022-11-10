@@ -1,0 +1,10 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "roots": ["<rootDir>/server"],
+  "testMatch": [
+    "<rootDir>/server/**/__tests__/**/*.{js,ts}",
+    "<rootDir>/server/**/*.{spec,test}.{js,ts}"
+  ],
+  "setupFiles": ["dotenv/config"]
+}
