@@ -17,7 +17,7 @@ const isNumberAllowed = (value: string): boolean => {
       lastDigit = lastDigit.substring(maxIndex + 1, value.length);
     }
 
-    if (lastDigit.length === 1 && lastDigit === '0') {
+    if (lastDigit.length === 1 && lastDigit === zeroOperator) {
       allowed = false;
     }
   }
