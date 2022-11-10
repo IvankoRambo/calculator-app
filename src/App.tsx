@@ -13,7 +13,7 @@ function App() {
   const operators = ['/', '*', '-', '+', '.'];
   const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-  const handleequation = async (event: MouseEvent) => {
+  const handleEquation = async (event: MouseEvent) => {
     const value = (event.target as HTMLButtonElement).textContent || '';
 
     if (
@@ -90,7 +90,7 @@ function App() {
       <div className="calculator">
         <Display equation={equation} result={result} />
         <Panel
-          equationHandler={handleequation}
+          equationHandler={handleEquation}
           resultHandler={handleSummarisation}
           deletionHandler={handleDeletion}
           clearingHandler={handleClearing}
