@@ -21,9 +21,6 @@ server
       res.status(200);
       res.json({ success: false });
     }
-  })
-  .get('/test', (req: Request, res: Response) => {
-    res.json({ users: 'allUsers' });
   });
 
 export default server;
