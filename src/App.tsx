@@ -3,6 +3,7 @@ import Display from './components/Display';
 import Panel from './components/Panel';
 import { updateCalculation } from './utils/callApi';
 import isFractionAllowed from './utils/isFractionAllowed';
+import isNumberAllowed from './utils/isNumberAllowed';
 
 function App() {
   const [equation, setEquation] = useState<string>('');
@@ -10,6 +11,7 @@ function App() {
   const [disabled, setDisabled] = useState<boolean>(false);
 
   const operators = ['/', '*', '-', '+', '.'];
+  const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
   const handleequation = async (event: MouseEvent) => {
     const value = (event.target as HTMLButtonElement).textContent || '';
@@ -17,8 +19,8 @@ function App() {
     if (
       value &&
       (
-        value !== '0' ||
-        equation
+        !digits.includes(value) ||
+        isNumberAllowed(equation)
       ) &&
       (
         !operators.includes(value) ||

@@ -66,12 +66,25 @@ describe('App Component', () => {
     expect(screen.getByTestId('equation')).toHaveTextContent('0');
   });
 
+  it('should not allow adding zero to last 0 digit in equation', () => {
+    render(<App />);
+
+    userEvent.click(screen.getByRole('button', { name: '1' }));
+    userEvent.click(screen.getByRole('button', { name: '+' }));
+    userEvent.click(screen.getByRole('button', { name: '2' }));
+    userEvent.click(screen.getByRole('button', { name: '*' }));
+    userEvent.click(screen.getByRole('button', { name: '0' }));
+    userEvent.click(screen.getByRole('button', { name: '0' }));
+
+    expect(screen.getByTestId('equation')).toHaveTextContent('1+2*0');
+  });
+
   it('should not allow put operator as a first symbol of equation', () => {
     render(<App />);
 
     userEvent.click(screen.getByRole('button', { name: '+' }));
 
-    expect(screen.getByTestId('equation')).toHaveTextContent('0');
+    expect(screen.getByTestId('equation')).toHaveTextContent('');
   });
 
   it('should not allow put operator after another operator', () => {
@@ -176,6 +189,6 @@ describe('App Component', () => {
     await waitFor(() => {
       expect(screen.queryByText(/4 =/)).not.toBeInTheDocument();
     });
-    expect(screen.getByTestId('equation')).toHaveTextContent('0');
+    expect(screen.getByTestId('equation')).toHaveTextContent('');
   });
 });
